@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  database:
+    image: mysql:5.7
+    volumes:
+      - ./db_data:/var/lib/mysql:rw
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: pharmacy
+      LANG: C.UTF_8
+    ports:
+      - '3304:3306'
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --init-connect='SET NAMES UTF8;'
